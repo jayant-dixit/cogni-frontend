@@ -126,7 +126,7 @@ export default function AnalysisPage({ youtubeUrl, onBack }) {
         setCurrentTime(Number(timestamp));
     };
 
-    const ready = status === "completed";
+    const ready = status == "processing" || status == "completed" || progress > 15;
     const label = status === "completed" ? "Analysis complete" : progress < 20 ? "Preparing video" : progress < 60 ? "Understanding context" : "Finding relevant ads";
 
     return (
